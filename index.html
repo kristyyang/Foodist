@@ -23,13 +23,17 @@
 
                 }
                 //function to handle event subject
-                handleClick(e){
-                    console.log(e.target)
+                handleClick = (e) =>{
+                    this.setState({
+                        name:'Emily',
+                        age: 24,
+                    })
+                    console.log(this.state)
                 }
-                handleMouseOver(e){
+                handleMouseOver = (e)=>{
                     console.log(e.target, e.pageX)
                 }
-                handleCopy(e){
+                handleCopy=(e)=>{
                     console.log('Yes we made it!')
                 }
                 render() {
