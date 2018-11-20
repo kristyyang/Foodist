@@ -30,20 +30,22 @@
                     })
                     console.log(this.state)
                 }
-                handleMouseOver = (e)=>{
-                    console.log(e.target, e.pageX)
+                handleChange=(e)=>{
+                    this.setState({
+                        name: e.target.value
+                    })
                 }
-                handleCopy=(e)=>{
-                    console.log('Yes we made it!')
+                handleSubmit=(e)=>{
+                        e.preventDefault();
                 }
                 render() {
                     return (
                         <div className="app-content">
-                            <h1>Hello World</h1>
                             <p>My name is: { this.state.name} and I am {this.state.age}</p>
-                            <button onClick={this.handleClick} >Click Me</button>
-                            <button onMouseOver ={this.handleMouseOver}>Hover me </button>
-                            <p onCopy ={this.handleCopy}>What we think, we become</p>
+                            <form onSubmit={this.handleSubmit}>
+                            <input type ="text" onChange={this.handleChange}/>
+                            <button>Submit</button>
+                            </form>
                         </div>)
                 }
             }
