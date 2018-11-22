@@ -2,7 +2,7 @@ import React from 'react';
 
 
 // use function componnent, without state
-const Restaurant = (restaurants)=>{
+const Restaurant = ({restaurants})=>{
         // const {restaurants} = props;
         // const restaurantlist = restaurants.map(restaurant =>{
         //     return (
