@@ -4,6 +4,8 @@
   "description": "",
   "main": "server.js",
   "scripts": {
+    "server": "nodemon server.js",
+    "server-install": "npm install",
     "client": "cd ./client && yarn start",
     "client-install": "cd ./client && yarn install",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -17,5 +19,9 @@
   "bugs": {
     "url": "https://github.com/kristyyang/React_Foodist/issues"
   },
-  "homepage": "https://github.com/kristyyang/React_Foodist#readme"
+  "homepage": "https://github.com/kristyyang/React_Foodist#readme",
+  "devDependencies": {
+    "concurrently": "^4.1.0",
+    "nodemon": "^1.18.10"
+  }
 }
