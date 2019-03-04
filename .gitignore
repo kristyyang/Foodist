@@ -5,3 +5,4 @@ node_modules/
 /.blackbox/pubring.kbx~
 /.blackbox/secring.gpg
 /config/keys.js
+/config/passport.js
