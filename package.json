@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kristyyang/React_Foodist.git"
+    "url": "git+https://github.com/kristyyang/Foodist.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/kristyyang/React_Foodist/issues"
+    "url": "https://github.com/kristyyang/Foodist/issues"
   },
-  "homepage": "https://github.com/kristyyang/React_Foodist#readme",
+  "homepage": "https://github.com/kristyyang/Foodist#readme",
   "devDependencies": {
     "concurrently": "^4.1.0",
     "nodemon": "^1.18.10",
