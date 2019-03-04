@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const morgan = require('morgan');
 const passport = require('passport');
 const path = require('path');
 
@@ -11,6 +12,7 @@ const app = express();
 // Load middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(morgan('dev'));
 app.use(passport.initialize());
 
 // Set up mongoose connection
