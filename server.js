@@ -1,8 +1,8 @@
-const express = require("express");
-const mongoose = require("mongoose");
-const bodyParser = require("body-parser");
-const passport = require("passport");
-const path = require("path");
+const express = require('express');
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+const passport = require('passport');
+const path = require('path');
 
 const app = express();
 
@@ -11,10 +11,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // Set up mongoose connection
-const mongoURI = require("./config/keys").mongoURI;
+const mongoURI = require('./config/keys').mongoURI;
 mongoose
-  .connect(mongoURI)
-  .then(() => console.log("MongoDB connected!"))
+  .connect(
+    mongoURI,
+    { useNewUrlParser: true }
+  )
+  .then(() => console.log('MongoDB connected!'))
   .catch(error => console.log(error));
 
 // Start server
