@@ -26,6 +26,9 @@ mongoose
 // Passport config
 require('./config/passport')(passport);
 
+// Use Routes
+app.use('/api/users', users);
+
 // Start server
 const port = 5000;
 app.listen(port, () => console.log(`Server running on port ${port}`));
