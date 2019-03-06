@@ -6,3 +6,4 @@ node_modules/
 /.blackbox/secring.gpg
 /config/keys.js
 /config/passport.js
+/config/mailer.js
