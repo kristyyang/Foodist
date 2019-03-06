@@ -4,6 +4,8 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const keys = require('../../config/keys');
 const passport = require('passport');
+const crypto = require('crypto');
+const mailer = require('../../utils/mailer');
 
 const registrationValidation = require('../../validation/registration');
 const loginValidation = require('../../validation/login');
@@ -38,6 +40,19 @@ router.post('/register', (req, res) => {
             .catch(err => console.log(err));
         });
       });
+
+      // Send a confirmation email
+      newUser.token = crypto.randomBytes(64).toString('hex');
+      const subject = 'Welcome to Foodist!!!';
+      const text = 'Please verify your email address';
+      const html = `
+        Hi ${newUser.name}. Please confirm your email address to complete your Foodist account:
+        <a href="http://localhost:5000/users/confirm">http://localhost:5000/confirm/${newUser.token}</a>
+      `;
+      mailer
+        .sendMail(newUser.email, subject, text, html)
+        .then(() => console.log(`Email sent to ${newUser.name} <${newUser.email}>`))
+        .catch(err => console.log(err));
     }
   });
 });
