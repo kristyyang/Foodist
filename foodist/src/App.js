@@ -7,22 +7,32 @@ import RestaurantDetails from "./component/RestaurantDetails";
 class App extends Component {
   state = {
     recipes:[],
-    url:"409e550e2f90d0e561637567809b5b1f", // need to fix
+    url:"409e550e2f90d0e561637567809b5b1f", // NEED TO FIX BECAUSE URL
   };
 
 
 async getRestaurant(){
-  // Fetch the URL and return data from URL
-  const data = await fetch(this.state.url);
-  // Transfer data to Json
-  const jsonData = await data.json();
+  try{
+    // Fetch the URL and return data from URL
+    const data = await fetch(this.state.url);
+    // Transfer data to Json
+    const jsonData = await data.json();
 
-  // Use JSON to get restaurant information
-  this.setState({
-    recipes: jsonData.recipes
-  })
+    // Use JSON to get restaurant information
+    this.setState({
+      recipes: jsonData.recipes // NEED TO FIX BECAUSE URL
+    })
+  }catch(error){
+    console.log(error);
+  }
 }
+
+// componentDidMount(){
+//   this.getRecipes()
+// }
   render() {
+    console.log(this.state.recipes);
+
     return (
       <React.Fragment>
         <RestaurantList />
