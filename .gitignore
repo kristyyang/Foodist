@@ -1,0 +1,9 @@
+.DS_Store
+.idea/
+node_modules/
+/.blackbox/pubring.gpg~
+/.blackbox/pubring.kbx~
+/.blackbox/secring.gpg
+/config/keys.js
+/config/passport.js
+/config/mailer.js
