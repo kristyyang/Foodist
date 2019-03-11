@@ -15,10 +15,10 @@ const RestaurantSchema = new Schema({
     type: String
   },
   longitude: {
-    type: Number
+    type: String
   },
   latitude: {
-    type: Number
+    type: String
   },
   rating: {
     type: Number
