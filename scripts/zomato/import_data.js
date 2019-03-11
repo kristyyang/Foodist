@@ -1,9 +1,15 @@
 const keys = require('../../config/keys');
+const mongoose = require('mongoose');
 const Restaurant = require('../../models/Restaurant');
 const zomato = require('zomato-api');
 const client = zomato({
   userKey: keys.zomato.userKey
 });
+
+mongoose
+  .connect(keys.mongoURI, { useNewUrlParser: true })
+  .then(() => console.log('MongoDB connected! Ready to import data.'))
+  .catch(error => console.log(error));
 
 const DEFAULT_CITY_ID = 256; // Vancouver
 
@@ -14,14 +20,11 @@ client
     count: 3
   })
   .then(res => {
-    console.log(typeof res);
     res.restaurants.forEach(restaurant => {
-      const newRestaurant = new Restaurant({
+      new Restaurant({
         resId: restaurant.restaurant.R.res_id,
         name: restaurant.restaurant.name
-      });
-      console.log(newRestaurant);
-      newRestaurant
+      })
         .save()
         .then(res => console.log(res))
         .catch(err => console.log(err));
