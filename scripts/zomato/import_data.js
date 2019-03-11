@@ -17,13 +17,16 @@ client
   .search({
     entity_id: DEFAULT_CITY_ID,
     entity_type: 'city',
-    count: 3
+    count: 10
   })
   .then(res => {
-    res.restaurants.forEach(restaurant => {
+    res.restaurants.forEach(item => {
       new Restaurant({
-        resId: restaurant.restaurant.R.res_id,
-        name: restaurant.restaurant.name
+        resId: item.restaurant.R.res_id,
+        name: item.restaurant.name,
+        address: item.restaurant.location.address,
+        longitude: item.restaurant.location.longitude,
+        latitude: item.restaurant.location.latitude
       })
         .save()
         .then(res => console.log(res))
