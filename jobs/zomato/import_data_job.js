@@ -34,7 +34,8 @@ const importData = () => {
           name: item.restaurant.name,
           address: item.restaurant.location.address,
           longitude: item.restaurant.location.longitude,
-          latitude: item.restaurant.location.latitude
+          latitude: item.restaurant.location.latitude,
+          imageUrl: item.restaurant.featured_image
         };
         Restaurant.findOneAndUpdate(
           {

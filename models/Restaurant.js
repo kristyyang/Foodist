@@ -20,6 +20,9 @@ const RestaurantSchema = new Schema({
   latitude: {
     type: String
   },
+  imageUrl: {
+    type: String
+  },
   rating: {
     type: Number
   }
