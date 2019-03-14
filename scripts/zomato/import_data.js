@@ -21,14 +21,20 @@ client
   })
   .then(res => {
     res.restaurants.forEach(item => {
-      new Restaurant({
+      let restaurant = {
         resId: item.restaurant.R.res_id,
         name: item.restaurant.name,
         address: item.restaurant.location.address,
         longitude: item.restaurant.location.longitude,
         latitude: item.restaurant.location.latitude
-      })
-        .save()
+      };
+      Restaurant.findOneAndUpdate(
+        {
+          resId: restaurant.resId
+        },
+        restaurant,
+        { upsert: true }
+      )
         .then(res => console.log(res))
         .catch(err => console.log(err));
     });
