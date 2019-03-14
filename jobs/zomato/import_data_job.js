@@ -15,7 +15,7 @@ mongoose
   .then(() => {
     console.log('MongoDB connected! Ready to import data.');
     console.log('Start job: Import data from Zomato');
-    const job = new CronJob('0 */1 * * * *', importData);
+    const job = new CronJob('0 0 */1 * * *', importData);
     job.start();
   })
   .catch(err => console.log(err));
